@@ -85,7 +85,7 @@ async def handler(event):
             if user_id in last_qr_request and (now - last_qr_request[user_id]).total_seconds() < cooldown_period:
                 await event.reply("🖕🏻 **BSDK RUK JA 10 Min USKE BAAD MILEGA QR.** 🖕🏻")
                 return
-            await client.send_file(event.chat_id, upload_qr_code, caption=f"**Here is my QR code for payment.**\n\n💳 UPI ID: `{upi_id}`\n\n📢 Join our channel: {channel_link}\n\n🤖 **UPI Payment Detector is Running...**", force_document=False, allow_cache=True)
+            await client.send_file(event.chat_id, upload_qr_code, caption=f"**Here is my QR code for payment.**\n\n💳 UPI ID: `{upi_id}`\n\n📢 Join our channel: {channel_link}\n\n📸 **Please Send a Screenshot of Payment**", force_document=False, allow_cache=True)
             last_qr_request[user_id] = now
             asyncio.create_task(check_sms())
         
